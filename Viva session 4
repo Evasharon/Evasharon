@@ -1,0 +1,25 @@
+def display_name_in_box():
+    
+    user_name = input("Enter your name: ")
+
+    uppercase_name = user_name.upper()
+
+    box_width = len(uppercase_name) + 4
+
+    print("*" * box_width)
+    print(f"* {uppercase_name} *")
+    print("*" * box_width)
+
+display_name_in_box()
+
+
+
+TEST PLAN
+| Test Case | Description                             | Input             | Expected Output                        |
+|-----------|-----------------------------------------|-------------------|----------------------------------------|
+| TC1       | Input a name with mixed case characters | User: "John Doe"  | Displayed: "JOHN DOE" within a box    |
+| TC2       | Input a name with all lowercase letters | User: "alice"     | Displayed: "ALICE" within a box       |
+| TC3       | Input a name with all uppercase letters | User: "BOB"       | Displayed: "BOB" within a box         |
+| TC4       | Input an empty name                      | User: ""           | Displayed: "" within a box (empty box)|
+| TC5       | Input a name with special characters     | User: "123!@#"    | Displayed: "123!@#" within a box      |
+| TC6       | Input a long name                        | User: "Elizabeth Smith" | Displayed: "ELIZABETH SMITH" within a box |
