@@ -1,0 +1,44 @@
+def store_student_details():
+   
+    student_data = {
+        "12345": {"name": "John Doe", "age": 20, "course": "Computer Science"},
+        "67890": {"name": "Jane Smith", "age": 22, "course": "Mathematics"},
+        "13579": {"name": "Bob Johnson", "age": 21, "course": "Physics"}
+    }
+
+    return student_data
+
+def search_student_by_id(student_data, student_id):
+
+    student = student_data.get(student_id)
+
+    if student:
+        print("\nStudent Details:")
+        print(f"Student ID: {student_id}")
+        print(f"Name: {student['name']}")
+        print(f"Age: {student['age']}")
+        print(f"Course: {student['course']}")
+    else:
+        print("\nStudent ID not recognized.")
+
+def main():
+   
+    student_data = store_student_details()
+
+    student_id = input("Enter Student ID to search: ")
+
+    search_student_by_id(student_data, student_id)
+
+main()
+
+TEST TABLE
+
+| Test Case | Description                              | Input                                | Expected Output                                     |
+|-----------|------------------------------------------|--------------------------------------|-----------------------------------------------------|
+| TC1       | Search for an existing student by ID     | Input: "12345"                      | Displayed: Student Details (Name, Age, Course)       |
+| TC2       | Search for a different existing student | Input: "67890"                      | Displayed: Student Details (Name, Age, Course)       |
+| TC3       | Search for a non-existing student        | Input: "99999"                      | Displayed: "Student ID not recognized."              |
+| TC4       | Search for a student with an empty ID     | Input: ""                           | Displayed: "Student ID not recognized."              |
+| TC5       | Search for a student with special characters in ID | Input: "@#$%"                | Displayed: "Student ID not recognized."              |
+
+  
