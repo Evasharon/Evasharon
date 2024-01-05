@@ -1,0 +1,62 @@
+'get_int' function
+
+function get_int(prompt_message="Please enter a number: ")
+    while True:
+        input_str = input(prompt_message)
+        if input_str.isdigit() or (input_str[0] == '-' and input_str[1:].isdigit()):
+            
+            return int(input_str)
+        else:
+            print("Bad input. Please enter a valid integer.")
+
+test_value = get_int("Please enter a number between 1 and 10: ")
+print(f"User entered: {test_value}")
+
+'get_float' function
+
+function get_float(prompt_message="Please enter a number: ")
+    while True:
+        input_str = input(prompt_message)
+        if input_str.replace('.', '', 1).isdigit() or \
+           (input_str[0] == '-' and input_str[1:].replace('.', '', 1).isdigit()):
+            return float(input_str)
+        else:
+            print("Bad input. Please enter a valid floating-point number.")
+
+test_value = get_float("Please enter a decimal number: ")
+print(f"User entered: {test_value}")
+
+Test Plan for get_int Function:
+Test with a valid positive integer:
+
+Input: "5"
+Expected Output: 5
+Test with a valid negative integer:
+
+Input: "-3"
+Expected Output: -3
+Test with an invalid input (non-numeric):
+
+Input: "abc"
+Expected Output: "Bad input" message, then prompt for input again.
+Test with an invalid input (float):
+
+Input: "7.5"
+Expected Output: "Bad input" message, then prompt for input again.
+Test Plan for get_float Function:
+Test with a valid positive float:
+
+Input: "3.14"
+Expected Output: 3.14
+Test with a valid negative float:
+
+Input: "-2.5"
+Expected Output: -2.5
+Test with an invalid input (non-numeric):
+
+Input: "xyz"
+Expected Output: "Bad input" message, then prompt for input again.
+Test with an invalid input (integer):
+
+Input: "8"
+Expected Output: "Bad input" message, then prompt for input again.
