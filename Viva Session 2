@@ -1,0 +1,31 @@
+def calculate_overall_grade():
+
+    num_marks = int(input("Enter the number of marks (1 to 3): ")) 
+    
+    overall_mark = 0
+    total_weight = 0
+
+    for i in range(num_marks):
+        mark = float(input(f"Enter mark {i + 1}: "))
+        weight = float(input(f"Enter weight for mark {i + 1}: "))
+        
+        weighted_mark = mark * weight55
+        overall_mark += weighted_mark
+        total_weight += weight
+
+    if total_weight == 0:
+        print("Error: Total weight is zero. Unable to calculate overall grade.")
+    else:
+        overall_grade = overall_mark / total_weight
+
+        print(f"\nOverall Grade: {overall_grade:.2f}")
+
+
+TEST PLAN
+| Test Case | Description                                      | Input                                      | Expected Output                           |
+|-----------|--------------------------------------------------|--------------------------------------------|-------------------------------------------|
+| TC1       | Calculate overall grade with one mark (100%)     | Number of Marks: 1, Mark 1: 85, Weight 1: 100 | Overall Grade: 85.00                      |
+| TC2       | Calculate overall grade with two marks (50%, 50%)| Number of Marks: 2, Mark 1: 75, Weight 1: 50, Mark 2: 90, Weight 2: 50 | Overall Grade: 82.50                   |
+| TC3       | Calculate overall grade with three marks (30%, 40%, 30%) | Number of Marks: 3, Mark 1: 80, Weight 1: 30, Mark 2: 70, Weight 2: 40, Mark 3: 90, Weight 3: 30 | Overall Grade: 78.00            |
+| TC4       | Calculate overall grade with zero weight         | Number of Marks: 1, Mark 1: 60, Weight 1: 0  | Error: Total weight is zero. Unable to calculate overall grade. |
+| TC5       | Calculate overall grade with invalid input       | Number of Marks: -2, Mark 1: 75, Weight 1: 50 | Error: Invalid input for the number of marks. Please enter a valid number. |
