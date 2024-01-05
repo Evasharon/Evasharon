@@ -1,0 +1,42 @@
+def calculate_statistics(grades):
+    average_grade = sum(grades) / len(grades)
+    min_grade = min(grades)
+    max_grade = max(grades)
+
+    return average_grade, min_grade, max_grade
+
+def display_report(grades):
+    sorted_grades = sorted(grades)
+
+    print("\nReport:")
+    print("Grades in ascending order:", sorted_grades)
+
+    for grade in sorted_grades:
+        status = "Pass" if grade >= 40 else "Fail"
+        print(f"Student Grade: {grade}% - {status}")
+
+def main():
+    num_students = int(input("Enter the number of students: "))
+    grades = []
+    for i in range(num_students):
+        mark = float(input(f"Enter the mark for student {i + 1}: "))
+        grades.append(mark)
+
+    average, minimum, maximum = calculate_statistics(grades)
+    print("\nStatistics:")
+    print(f"Average Mark: {average:.2f}%")
+    print(f"Minimum Grade: {minimum}%")
+    print(f"Maximum Grade: {maximum}%")
+
+    display_report(grades)
+
+main()
+
+TEST TABLE
+| Test Case | Description                              | Input                                | Expected Output                                   |
+|-----------|------------------------------------------|--------------------------------------|---------------------------------------------------|
+| TC1       | Calculate statistics for one student     | Number of Students: 1, Mark: 80       | Average Mark: 80.0%, Minimum Grade: 80%, Maximum Grade: 80%<br>Report: Grades in ascending order: [80.0]<br>Student Grade: 80.0% - Pass |
+| TC2       | Calculate statistics for three students  | Number of Students: 3, Marks: 60, 75, 90 | Average Mark: 75.0%, Minimum Grade: 60%, Maximum Grade: 90%<br>Report: Grades in ascending order: [60.0, 75.0, 90.0]<br>Student Grade: 60.0% - Fail<br>Student Grade: 75.0% - Pass<br>Student Grade: 90.0% - Pass |
+| TC3       | Input negative mark                      | Number of Students: 1, Mark: -10       | Average Mark: -10.0%, Minimum Grade: -10%, Maximum Grade: -10%<br>Report: Grades in ascending order: [-10.0]<br>Student Grade: -10.0% - Fail |
+| TC4       | Input non-integer number of students      | Number of Students: 2.5, Marks: 70, 85 | Error: Invalid input for the number of students. Please enter a valid integer. |
+| TC5       | Input mix of passing and failing grades   | Number of Students: 4, Marks: 30, 45, 60, 75 | Average Mark: 52.5%, Minimum Grade: 30%, Maximum Grade: 75%<br>Report: Grades in ascending order: [30.0, 45.0, 60.0, 75.0]<br>Student Grade: 30.0% - Fail<br>Student Grade: 45.0% - Fail<br>Student Grade: 60.0% - Pass<br>Student Grade: 75.0% - Pass |
