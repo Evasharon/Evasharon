@@ -1,0 +1,24 @@
+def save_student_marks_to_file():
+    
+    num_marks = int(input("Enter the number of student marks to be saved: "))
+
+    file_name = "student_marks.txt"
+    with open(file_name, "w") as file:
+
+        for i in range(num_marks):
+            mark = float(input(f"Enter mark {i + 1}: "))
+            file.write(f"{mark}\n")
+
+    print(f"\nStudent marks have been saved to {file_name}.")
+
+save_student_marks_to_file()
+
+TEST TABLE
+| Test Case | Description                                      | Input                         | Expected Output                                    |
+|-----------|--------------------------------------------------|-------------------------------|----------------------------------------------------|
+| TC1       | Save one student mark to the file               | Number of marks: 1, Mark: 75  | File "student_marks.txt" contains a single line with the value 75.0 |
+| TC2       | Save three student marks to the file            | Number of marks: 3, Marks: 80, 65, 90 | File "student_marks.txt" contains three lines with the values 80.0, 65.0, and 90.0 |
+| TC3       | Save zero student marks to the file             | Number of marks: 0            | File "student_marks.txt" is created but remains empty |
+| TC4       | Save a negative student mark to the file        | Number of marks: 1, Mark: -10 | File "student_marks.txt" contains a single line with the value -10.0 |
+| TC5       | Save student marks with decimal values to the file | Number of marks: 2, Marks: 85.5, 92.75 | File "student_marks.txt" contains two lines with the values 85.5 and 92.75 |
+| TC6       | Save student marks with special characters in the file name | Number of marks: 2, Marks: 75, 88 | Error: Unable to create a file with a special character in the name. |
