@@ -1,0 +1,55 @@
+def get_user_choice():
+  
+    print("Choose: 1 - Rock, 2 - Paper, 3 - Scissors")
+    user_choice = int(input("Enter your choice (1/2/3): "))
+    return user_choice
+
+def get_computer_choice():
+   
+    return random.randint(1, 3)
+
+def determine_winner(user_choice, computer_choice):
+    
+    if user_choice == computer_choice:
+        return "draw"
+    elif (user_choice == 1 and computer_choice == 3) or \
+         (user_choice == 2 and computer_choice == 1) or \
+         (user_choice == 3 and computer_choice == 2):
+        return "user"
+    else:
+        return "computer"
+
+def display_result(winner):
+  
+    if winner == "draw":
+        print("It's a draw!")
+    elif winner == "user":
+        print("You win!")
+    else:
+        print("Computer wins!")
+
+def play_game():
+  
+    user_choice = get_user_choice()
+    computer_choice = get_computer_choice()
+
+    print(f"\nYou chose: {user_choice}")
+    print(f"Computer chose: {computer_choice}\n")
+
+    winner = determine_winner(user_choice, computer_choice)
+    display_result(winner)
+
+play_game()
+
+
+ Test Case | Description                                       | Input                 | Expected Output                  |
+| TC1       | Player chooses Rock, Computer chooses Scissors    | Player: 1, Computer: 3 | Result: You win!                |
+| TC2       | Player chooses Paper, Computer chooses Paper      | Player: 2, Computer: 2 | Result: It's a draw!            |
+| TC3       | Player chooses Scissors, Computer chooses Rock    | Player: 3, Computer: 1 | Result: Computer wins!          |
+| TC4       | Player chooses invalid input                      | Player: 4              | Error: Invalid input. Try again.|
+| TC5       | Player and Computer both choose Rock              | Player: 1, Computer: 1 | Result: It's a draw!            |
+| TC6       | Player and Computer both choose Paper             | Player: 2, Computer: 2 | Result: It's a draw!            |
+| TC7       | Player and Computer both choose Scissors          | Player: 3, Computer: 3 | Result: It's a draw!            |
+| TC8       | Player chooses Rock, Computer chooses Paper       | Player: 1, Computer: 2 | Result: Computer wins!          |
+| TC9       | Player chooses Paper, Computer chooses Scissors   | Player: 2, Computer: 3 | Result: Computer wins!          |
+| TC10      | Player chooses Scissors, Computer chooses Paper   | Player: 3, Computer: 2 | Result: You win!                |
