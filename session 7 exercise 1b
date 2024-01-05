@@ -1,0 +1,32 @@
+def get_float(prompt_message="Enter a floating-point number: "):
+    while True:
+        input_str = input(prompt_message)
+        if input_str.replace('.', '', 1).isdigit() or \
+           (input_str[0] == '-' and input_str[1:].replace('.', '', 1).isdigit()):
+            return float(input_str)
+        else:
+            print("Bad input. Please enter a valid floating-point number.")
+
+def calculate_overall_grade():
+
+    num_marks = int(input("Enter the number of marks (1 to 3): "))
+    
+    overall_mark = 0
+    total_weight = 0
+
+    for i in range(num_marks):
+        mark = get_float(f"Enter mark {i + 1}: ")
+        weight = get_float(f"Enter weight for mark {i + 1}: ")
+        
+        weighted_mark = mark * weight
+        overall_mark += weighted_mark
+        total_weight += weight
+
+    if total_weight == 0:
+        print("Error: Total weight is zero. Unable to calculate overall grade.")
+    else
+        overall_grade = overall_mark / total_weight
+
+        print(f"\nOverall Grade: {overall_grade:.2f}")
+
+calculate_overall_grade()
